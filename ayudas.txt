@@ -1,0 +1,50 @@
+EDAula_202502462032/
+├── Controllers/
+│   ├── HomeController.cs
+│   ├── TrainController.cs
+│   ├── RouteController.cs
+│   ├── TicketController.cs
+│   ├── EmployeeController.cs
+├── Models/
+│   ├── Train.cs
+│   ├── Route.cs
+│   ├── Ticket.cs
+│   ├── Passenger.cs
+│   ├── Employee.cs
+│   ├── Luggage.cs
+│   ├── Station.cs
+├── Views/
+│   ├── Home/
+│   │   ├── Index.cshtml
+│   ├── Train/
+│   │   ├── Index.cshtml
+│   │   ├── Create.cshtml
+│   │   ├── Edit.cshtml
+│   ├── Route/
+│   │   ├── Index.cshtml
+│   │   ├── Create.cshtml
+│   │   ├── Edit.cshtml
+│   ├── Ticket/
+│   │   ├── Index.cshtml
+│   │   ├── Purchase.cshtml
+│   │   ├── BoardingOrder.cshtml
+│   ├── Shared/
+│   │   ├── _Layout.cshtml
+│   │   ├── _ViewImports.cshtml
+│   │   ├── _ViewStart.cshtml
+├── wwwroot/
+│   ├── css/
+│   ├── js/
+│   ├── lib/
+├── Data/
+│   ├── ApplicationDbContext.cs
+├── Services/
+│   ├── RouteService.cs
+│   ├── TicketService.cs
+│   ├── TrainService.cs
+├── Properties/
+│   ├── launchSettings.json
+├── Program.cs
+├── appsettings.json
+├── appsettings.Development.json
+├── README.md
