@@ -16,13 +16,13 @@
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\EDAula_202502462032.ioi3n1uvtl.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-rsOm4juJv1jQ\u002BB5Aw2YH87lncbA17zsdteayllPd\u002B2E="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1137"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022rsOm4juJv1jQ\u002BB5Aw2YH87lncbA17zsdteayllPd\u002B2E=\u0022"},{"Name":"Last-Modified","Value":"Wed, 30 Apr 2025 05:05:52 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1137"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022rsOm4juJv1jQ\u002BB5Aw2YH87lncbA17zsdteayllPd\u002B2E=\u0022"},{"Name":"Last-Modified","Value":"Wed, 30 Apr 2025 06:04:57 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/EDAula_202502462032/EDAula_202502462032.ioi3n1uvtl.bundle.scp.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\EDAula_202502462032.ioi3n1uvtl.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"ioi3n1uvtl"},{"Name":"integrity","Value":"sha256-rsOm4juJv1jQ\u002BB5Aw2YH87lncbA17zsdteayllPd\u002B2E="},{"Name":"label","Value":"_content/EDAula_202502462032/EDAula_202502462032.bundle.scp.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1137"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022rsOm4juJv1jQ\u002BB5Aw2YH87lncbA17zsdteayllPd\u002B2E=\u0022"},{"Name":"Last-Modified","Value":"Wed, 30 Apr 2025 05:05:52 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1137"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022rsOm4juJv1jQ\u002BB5Aw2YH87lncbA17zsdteayllPd\u002B2E=\u0022"},{"Name":"Last-Modified","Value":"Wed, 30 Apr 2025 06:04:57 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/EDAula_202502462032/favicon.61n19gt1b8.ico">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\favicon.ico'))</AssetFile>

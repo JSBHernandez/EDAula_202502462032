@@ -28,16 +28,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/sebas/OneDrive/Documentos/GitHub/EDAula_202502462032/Views/Route/create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm91dGVcY3JlYXRlLmNzaHRtbA==
+[C:/Users/sebas/OneDrive/Documentos/GitHub/EDAula_202502462032/Views/Route/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm91dGVcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/sebas/OneDrive/Documentos/GitHub/EDAula_202502462032/Views/Route/edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm91dGVcZWRpdC5jc2h0bWw=
+[C:/Users/sebas/OneDrive/Documentos/GitHub/EDAula_202502462032/Views/Route/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm91dGVcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/sebas/OneDrive/Documentos/GitHub/EDAula_202502462032/Views/Route/index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm91dGVcaW5kZXguY3NodG1s
+[C:/Users/sebas/OneDrive/Documentos/GitHub/EDAula_202502462032/Views/Route/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm91dGVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/sebas/OneDrive/Documentos/GitHub/EDAula_202502462032/Views/Shared/Error.cshtml]
@@ -48,28 +48,28 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/sebas/OneDrive/Documentos/GitHub/EDAula_202502462032/Views/Ticket/boardingorder.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlja2V0XGJvYXJkaW5nb3JkZXIuY3NodG1s
+[C:/Users/sebas/OneDrive/Documentos/GitHub/EDAula_202502462032/Views/Ticket/BoardingOrder.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlja2V0XEJvYXJkaW5nT3JkZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/sebas/OneDrive/Documentos/GitHub/EDAula_202502462032/Views/Ticket/index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlja2V0XGluZGV4LmNzaHRtbA==
+[C:/Users/sebas/OneDrive/Documentos/GitHub/EDAula_202502462032/Views/Ticket/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlja2V0XEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/sebas/OneDrive/Documentos/GitHub/EDAula_202502462032/Views/Ticket/purchase.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlja2V0XHB1cmNoYXNlLmNzaHRtbA==
+[C:/Users/sebas/OneDrive/Documentos/GitHub/EDAula_202502462032/Views/Ticket/Purchase.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlja2V0XFB1cmNoYXNlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/sebas/OneDrive/Documentos/GitHub/EDAula_202502462032/Views/Train/create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhaW5cY3JlYXRlLmNzaHRtbA==
+[C:/Users/sebas/OneDrive/Documentos/GitHub/EDAula_202502462032/Views/Train/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhaW5cQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/sebas/OneDrive/Documentos/GitHub/EDAula_202502462032/Views/Train/edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhaW5cZWRpdC5jc2h0bWw=
+[C:/Users/sebas/OneDrive/Documentos/GitHub/EDAula_202502462032/Views/Train/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhaW5cRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/sebas/OneDrive/Documentos/GitHub/EDAula_202502462032/Views/Train/index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhaW5caW5kZXguY3NodG1s
+[C:/Users/sebas/OneDrive/Documentos/GitHub/EDAula_202502462032/Views/Train/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/sebas/OneDrive/Documentos/GitHub/EDAula_202502462032/Views/_ViewImports.cshtml]

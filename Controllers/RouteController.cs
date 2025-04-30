@@ -1,84 +1,63 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.EntityFrameworkCore.Infrastructure;
 using Models = EDAula_202502462032.Models; // Alias para los modelos
 using EDAula_202502462032.Data;
-
 
 public class RouteController : Controller
 {
     private readonly ApplicationDbContext _context;
-    private readonly RouteService _routeService;
 
     public RouteController(ApplicationDbContext context)
     {
         _context = context;
-        _routeService = new RouteService(context);
     }
 
     // GET: /Route
     public IActionResult Index()
     {
-        var routes = _context.Routes.ToList();
-        return Ok(routes); // Devuelve la lista de rutas
+        // Simula obtener todas las rutas
+        var routes = new List<Models.Route>
+        {
+            new Models.Route { Id = 1, Origin = "Ciudad A", Destination = "Ciudad B", Distance = 100 },
+            new Models.Route { Id = 2, Origin = "Ciudad B", Destination = "Ciudad C", Distance = 200 }
+        };
+        return View(routes); // Pasa las rutas simuladas a la vista
     }
 
     // POST: /Route/Create
     [HttpPost]
-    public IActionResult Create([FromBody] Models.Route route) // Usa el alias para evitar conflictos
+    public IActionResult Create([FromBody] Models.Route route)
     {
-        if (ModelState.IsValid)
-        {
-            _context.Routes.Add(route);
-            _context.SaveChanges();
-            return Ok(route);
-        }
-        return BadRequest(ModelState);
+        // Simula la creación de una ruta
+        return Ok(new { Message = "Ruta creada exitosamente", Route = route });
     }
 
     // PUT: /Route/Edit/{id}
     [HttpPut("{id}")]
-    public IActionResult Edit(int id, [FromBody] Models.Route route) // Usa el alias aquí también
+    public IActionResult Edit(int id, [FromBody] Models.Route route)
     {
-        var existingRoute = _context.Routes.Find(id);
-        if (existingRoute == null)
-        {
-            return NotFound();
-        }
-
-        existingRoute.Origin = route.Origin;
-        existingRoute.Destination = route.Destination;
-        existingRoute.Distance = route.Distance;
-
-        _context.SaveChanges();
-        return Ok(existingRoute);
+        // Simula la edición de una ruta
+        return Ok(new { Message = $"Ruta con ID {id} actualizada exitosamente", Route = route });
     }
 
     // DELETE: /Route/Delete/{id}
     [HttpDelete("{id}")]
     public IActionResult Delete(int id)
     {
-        var route = _context.Routes.Find(id);
-        if (route == null)
-        {
-            return NotFound();
-        }
-
-        _context.Routes.Remove(route);
-        _context.SaveChanges();
-        return Ok();
+        // Simula la eliminación de una ruta
+        return Ok(new { Message = $"Ruta con ID {id} eliminada exitosamente" });
     }
 
     // GET: /Route/ShortestRoute
     [HttpGet("ShortestRoute")]
     public IActionResult ShortestRoute(string origin, string destination)
     {
-        var shortestRoute = _routeService.GetShortestRoute(origin, destination);
-        if (shortestRoute.Count == 0)
+        // Simula encontrar la ruta más corta
+        var shortestRoute = new List<Models.Route>
         {
-            return NotFound("No se encontró una ruta entre las estaciones especificadas.");
-        }
+            new Models.Route { Id = 1, Origin = origin, Destination = destination, Distance = 50 }
+        };
         return Ok(shortestRoute);
     }
 }

@@ -1,0 +1,30 @@
+@model IEnumerable<EDAula_202502462032.Models.Route>
+
+@{
+    ViewData["Title"] = "Lista de Rutas";
+}
+
+<div class="container mt-4">
+    <h1 class="mb-4">Lista de Rutas</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Origen</th>
+                <th>Destino</th>
+                <th>Distancia (km)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var route in Model)
+            {
+                <tr>
+                    <td>@route.Id</td>
+                    <td>@route.Origin</td>
+                    <td>@route.Destination</td>
+                    <td>@route.Distance</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

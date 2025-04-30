@@ -1,42 +1,47 @@
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
-using EDAula_202502462032.Models;
-using EDAula_202502462032.Data;
+using System.Collections.Generic;
+using Models = EDAula_202502462032.Models;
 
 public class TicketController : Controller
 {
-    private readonly ApplicationDbContext _context;
-    private readonly TicketService _ticketService;
-
-    public TicketController(ApplicationDbContext context, TicketService ticketService)
-    {
-        _context = context;
-        _ticketService = ticketService;
-    }
+    // Simula una base de datos de tickets
+    private static List<Models.Ticket> _tickets = new List<Models.Ticket>();
 
     // GET: /Ticket
     public IActionResult Index()
     {
-        var tickets = _context.Tickets.ToList();
-        return Ok(tickets); // Devuelve la lista de boletos
+        return View(_tickets); // Muestra todos los tickets
     }
 
-    // POST: /Ticket/Purchase
+    // POST: /Ticket/Buy
     [HttpPost]
-    public IActionResult Purchase([FromBody] Ticket ticket)
+    public IActionResult Buy([FromBody] Models.Ticket ticket)
     {
-        if (ModelState.IsValid)
-        {
-            // Validar disponibilidad de asientos
-            if (!_ticketService.ValidateSeatAvailability(ticket.TrainId, ticket.SeatCategory))
-            {
-                return BadRequest("No hay asientos disponibles en esta categoría.");
-            }
+        _tickets.Add(ticket); // Simula la compra de un ticket
+        return Ok(new { Message = "Ticket comprado exitosamente", Ticket = ticket });
+    }
 
-            _context.Tickets.Add(ticket);
-            _context.SaveChanges();
-            return Ok(ticket);
+    // GET: /Ticket/Details/{id}
+    public IActionResult Details(int id)
+    {
+        var ticket = _tickets.Find(t => t.Id == id);
+        if (ticket == null)
+        {
+            return NotFound(new { Message = "Ticket no encontrado" });
         }
-        return BadRequest(ModelState);
+        return View(ticket); // Muestra los detalles del ticket
+    }
+
+    // DELETE: /Ticket/Cancel/{id}
+    [HttpDelete("{id}")]
+    public IActionResult Cancel(int id)
+    {
+        var ticket = _tickets.Find(t => t.Id == id);
+        if (ticket == null)
+        {
+            return NotFound(new { Message = "Ticket no encontrado" });
+        }
+        _tickets.Remove(ticket); // Simula la cancelación del ticket
+        return Ok(new { Message = $"Ticket con ID {id} cancelado exitosamente" });
     }
 }
