@@ -1,6 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Models = EDAula_202502462032.Models; // Alias para los modelos
+using EDAula_202502462032.Data;
+
 
 public class RouteController : Controller
 {
@@ -22,7 +26,7 @@ public class RouteController : Controller
 
     // POST: /Route/Create
     [HttpPost]
-    public IActionResult Create([FromBody] Route route)
+    public IActionResult Create([FromBody] Models.Route route) // Usa el alias para evitar conflictos
     {
         if (ModelState.IsValid)
         {
@@ -35,7 +39,7 @@ public class RouteController : Controller
 
     // PUT: /Route/Edit/{id}
     [HttpPut("{id}")]
-    public IActionResult Edit(int id, [FromBody] Route route)
+    public IActionResult Edit(int id, [FromBody] Models.Route route) // Usa el alias aquí también
     {
         var existingRoute = _context.Routes.Find(id);
         if (existingRoute == null)

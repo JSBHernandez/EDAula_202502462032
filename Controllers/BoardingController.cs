@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using EDAula_202502462032.Models;
 
 public class BoardingController : Controller
 {

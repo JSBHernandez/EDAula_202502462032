@@ -1,4 +1,5 @@
 using System.Linq;
+using EDAula_202502462032.Data;
 
 public class TicketService
 {

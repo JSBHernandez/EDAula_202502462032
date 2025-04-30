@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
+using EDAula_202502462032.Models;
+using EDAula_202502462032.Data;
 
 public class TrainController : Controller
 {

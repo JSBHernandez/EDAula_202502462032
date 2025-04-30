@@ -1,14 +1,15 @@
 using Microsoft.EntityFrameworkCore;
-using YourNamespace.Data; // Asegúrate de usar el namespace correcto para tu contexto
+using EDAula_202502462032.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Agregar servicios al contenedor
 builder.Services.AddControllersWithViews();
 
-// Configurar Entity Framework Core con una base de datos en memoria (puedes cambiar esto más adelante)
+// Configurar Entity Framework Core con MySQL
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseInMemoryDatabase("EDAula")); // Cambiar a SQL Server más adelante si es necesario
+    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))); // Configura MySQL
 
 var app = builder.Build();
 

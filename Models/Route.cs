@@ -1,5 +1,5 @@
-namespace EDAula_202502462032.Models;
 using System.Collections.Generic;
+namespace EDAula_202502462032.Models;
 
 public class Route
 {

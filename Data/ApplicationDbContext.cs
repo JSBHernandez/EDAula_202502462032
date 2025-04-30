@@ -1,3 +1,4 @@
+namespace EDAula_202502462032.Data;
 using Microsoft.EntityFrameworkCore;
 using Models = EDAula_202502462032.Models; // Crea un alias para tus modelos
 

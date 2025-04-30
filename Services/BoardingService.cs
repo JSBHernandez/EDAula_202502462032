@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
+using EDAula_202502462032.Data;
+using EDAula_202502462032.Models;
 
 public class BoardingService
 {

@@ -1,0 +1,9 @@
+C:\Users\sebas\OneDrive\Documentos\GitHub\EDAula_202502462032\obj\Debug\net8.0\EDAula_202502462032.csproj.AssemblyReference.cache
+C:\Users\sebas\OneDrive\Documentos\GitHub\EDAula_202502462032\obj\Debug\net8.0\EDAula_202502462032.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sebas\OneDrive\Documentos\GitHub\EDAula_202502462032\obj\Debug\net8.0\EDAula_202502462032.AssemblyInfoInputs.cache
+C:\Users\sebas\OneDrive\Documentos\GitHub\EDAula_202502462032\obj\Debug\net8.0\EDAula_202502462032.AssemblyInfo.cs
+C:\Users\sebas\OneDrive\Documentos\GitHub\EDAula_202502462032\obj\Debug\net8.0\EDAula_202502462032.csproj.CoreCompileInputs.cache
+C:\Users\sebas\OneDrive\Documentos\GitHub\EDAula_202502462032\obj\Debug\net8.0\EDAula_202502462032.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\sebas\OneDrive\Documentos\GitHub\EDAula_202502462032\obj\Debug\net8.0\EDAula_202502462032.RazorAssemblyInfo.cache
+C:\Users\sebas\OneDrive\Documentos\GitHub\EDAula_202502462032\obj\Debug\net8.0\EDAula_202502462032.RazorAssemblyInfo.cs
+C:\Users\sebas\OneDrive\Documentos\GitHub\EDAula_202502462032\obj\Debug\net8.0\EDAula_202502462032.sourcelink.json
