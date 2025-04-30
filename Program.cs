@@ -9,7 +9,7 @@ builder.Services.AddControllersWithViews();
 // Configurar Entity Framework Core con MySQL
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))); // Configura MySQL
+    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))); 
 
 var app = builder.Build();
 

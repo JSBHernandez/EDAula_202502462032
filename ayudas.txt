@@ -48,3 +48,5 @@ EDAula_202502462032/
 ├── appsettings.json
 ├── appsettings.Development.json
 ├── README.md
+
+curl -X POST http://localhost:<puerto>/Ticket/Buy -H "Content-Type: application/json" -d '{"Id":1,"Name":"Test Ticket"}'
