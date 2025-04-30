@@ -1,4 +1,4 @@
-namespace estructuras_aula.Models;
+namespace EDAula_202502462032.Models;
 
 public class ErrorViewModel
 {
