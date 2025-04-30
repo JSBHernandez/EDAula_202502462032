@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\EDAula_202502462032.props" />
+</Project>
