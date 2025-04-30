@@ -6,6 +6,6 @@ public class Route
     public int Id { get; set; }
     public string Origin { get; set; }
     public string Destination { get; set; }
-    public int Distance { get; set; } // Distancia en kilómetros
+    public int Distance { get; set; } // km
     public ICollection<Station> Stations { get; set; }
 }

@@ -4,6 +4,6 @@ public class HomeController : Controller
 {
     public IActionResult Index()
     {
-        return View(); // Devuelve la vista "Index"
+        return View(); 
     }
 }

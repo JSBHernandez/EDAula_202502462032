@@ -1,6 +1,6 @@
 namespace EDAula_202502462032.Data;
 using Microsoft.EntityFrameworkCore;
-using Models = EDAula_202502462032.Models; // Crea un alias para tus modelos
+using Models = EDAula_202502462032.Models; 
 
 public class ApplicationDbContext : DbContext
 {
@@ -9,7 +9,7 @@ public class ApplicationDbContext : DbContext
     {
     }
 
-    // Registra las entidades en el contexto
+
     public DbSet<Models.Train> Trains { get; set; }
     public DbSet<Models.Route> Routes { get; set; } 
     public DbSet<Models.Ticket> Tickets { get; set; }
