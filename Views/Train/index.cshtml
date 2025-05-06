@@ -1,0 +1,32 @@
+@model IEnumerable<EDAula_202502462032.Models.Train>
+
+@{
+    ViewData["Title"] = "Lista de Trenes";
+}
+
+<div class="container mt-4">
+    <h1 class="mb-4">Lista de Trenes</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Capacidad de Pasajeros</th>
+                <th>Capacidad de Equipaje</th>
+                <th>Tipo</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var train in Model)
+            {
+                <tr>
+                    <td>@train.Id</td>
+                    <td>@train.Name</td>
+                    <td>@train.PassengerCapacity</td>
+                    <td>@train.LuggageCapacity</td>
+                    <td>@train.Type</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
