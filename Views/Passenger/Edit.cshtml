@@ -1,0 +1,59 @@
+@model EDAula_202502462032.Models.Passenger
+
+@{
+    ViewData["Title"] = "Editar Pasajero";
+}
+
+<div class="container mt-4">
+    <h1 class="mb-4">Editar Pasajero</h1>
+    <form asp-action="Edit" method="post">
+        <input type="hidden" asp-for="Id" />
+        <div class="mb-3">
+            <label for="FirstName" class="form-label">Nombre</label>
+            <input type="text" class="form-control" asp-for="FirstName" required />
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label for="LastName" class="form-label">Apellido</label>
+            <input type="text" class="form-control" asp-for="LastName" required />
+            <span asp-validation-for="LastName" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label for="Identification" class="form-label">Identificación</label>
+            <input type="text" class="form-control" asp-for="Identification" required />
+            <span asp-validation-for="Identification" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label for="IdentificationType" class="form-label">Tipo de Identificación</label>
+            <input type="text" class="form-control" asp-for="IdentificationType" required />
+            <span asp-validation-for="IdentificationType" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label for="Address" class="form-label">Dirección</label>
+            <input type="text" class="form-control" asp-for="Address" required />
+            <span asp-validation-for="Address" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label for="PhoneNumber" class="form-label">Teléfono</label>
+            <input type="text" class="form-control" asp-for="PhoneNumber" required />
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label for="ContactFirstName" class="form-label">Nombre de Contacto</label>
+            <input type="text" class="form-control" asp-for="ContactFirstName" required />
+            <span asp-validation-for="ContactFirstName" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label for="ContactLastName" class="form-label">Apellido de Contacto</label>
+            <input type="text" class="form-control" asp-for="ContactLastName" required />
+            <span asp-validation-for="ContactLastName" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label for="ContactPhoneNumber" class="form-label">Teléfono de Contacto</label>
+            <input type="text" class="form-control" asp-for="ContactPhoneNumber" required />
+            <span asp-validation-for="ContactPhoneNumber" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>

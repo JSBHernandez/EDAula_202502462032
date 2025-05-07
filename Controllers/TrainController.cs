@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using EDAula_202502462032.Models;
 using EDAula_202502462032.Data;
 
@@ -17,45 +16,60 @@ public class TrainController : Controller
     public IActionResult Index()
     {
         var trains = _context.Trains.ToList();
-        return Ok(trains); // Devuelve la lista de trenes
+        return View(trains);
+    }
+
+    // GET: /Train/Create
+    public IActionResult Create()
+    {
+        return View();
     }
 
     // POST: /Train/Create
     [HttpPost]
-    public IActionResult Create([FromBody] Train train)
+    [ValidateAntiForgeryToken]
+    public IActionResult Create(Train train)
     {
         if (ModelState.IsValid)
         {
             _context.Trains.Add(train);
             _context.SaveChanges();
-            return Ok(train);
+            return RedirectToAction(nameof(Index));
         }
-        return BadRequest(ModelState);
+        return View(train);
     }
 
-    // PUT: /Train/Edit/{id}
-    [HttpPut("{id}")]
-    public IActionResult Edit(int id, [FromBody] Train train)
+    // GET: /Train/Edit/{id}
+    public IActionResult Edit(int id)
     {
-        var existingTrain = _context.Trains.Find(id);
-        if (existingTrain == null)
+        var train = _context.Trains.Find(id);
+        if (train == null)
+        {
+            return NotFound();
+        }
+        return View(train);
+    }
+
+    // POST: /Train/Edit/{id}
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public IActionResult Edit(int id, Train train)
+    {
+        if (id != train.Id)
         {
             return NotFound();
         }
 
-        existingTrain.Name = train.Name;
-        existingTrain.Identifier = train.Identifier;
-        existingTrain.Type = train.Type;
-        existingTrain.PassengerCapacity = train.PassengerCapacity;
-        existingTrain.LuggageCapacity = train.LuggageCapacity;
-        existingTrain.Mileage = train.Mileage;
-
-        _context.SaveChanges();
-        return Ok(existingTrain);
+        if (ModelState.IsValid)
+        {
+            _context.Update(train);
+            _context.SaveChanges();
+            return RedirectToAction(nameof(Index));
+        }
+        return View(train);
     }
 
-    // DELETE: /Train/Delete/{id}
-    [HttpDelete("{id}")]
+    // GET: /Train/Delete/{id}
     public IActionResult Delete(int id)
     {
         var train = _context.Trains.Find(id);
@@ -63,9 +77,17 @@ public class TrainController : Controller
         {
             return NotFound();
         }
+        return View(train);
+    }
 
+    // POST: /Train/Delete/{id}
+    [HttpPost, ActionName("Delete")]
+    [ValidateAntiForgeryToken]
+    public IActionResult DeleteConfirmed(int id)
+    {
+        var train = _context.Trains.Find(id);
         _context.Trains.Remove(train);
         _context.SaveChanges();
-        return Ok();
+        return RedirectToAction(nameof(Index));
     }
 }

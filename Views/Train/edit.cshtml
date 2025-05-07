@@ -1,0 +1,34 @@
+@model EDAula_202502462032.Models.Train
+
+@{
+    ViewData["Title"] = "Editar Tren";
+}
+
+<div class="container mt-4">
+    <h1 class="mb-4">Editar Tren</h1>
+    <form asp-action="Edit" method="post">
+        <input type="hidden" asp-for="Id" />
+        <div class="mb-3">
+            <label for="Name" class="form-label">Nombre</label>
+            <input type="text" class="form-control" asp-for="Name" required />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label for="PassengerCapacity" class="form-label">Capacidad de Pasajeros</label>
+            <input type="number" class="form-control" asp-for="PassengerCapacity" required />
+            <span asp-validation-for="PassengerCapacity" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label for="LuggageCapacity" class="form-label">Capacidad de Equipaje</label>
+            <input type="number" class="form-control" asp-for="LuggageCapacity" required />
+            <span asp-validation-for="LuggageCapacity" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label for="Type" class="form-label">Tipo</label>
+            <input type="text" class="form-control" asp-for="Type" required />
+            <span asp-validation-for="Type" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>

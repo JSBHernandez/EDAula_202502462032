@@ -3,7 +3,12 @@ using EDAula_202502462032.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Agregar servicios al contenedor
+// Configurar la conexión a la base de datos
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"),
+        new MySqlServerVersion(new Version(8, 0, 25))));
+
+// Otros servicios
 builder.Services.AddControllersWithViews();
 
 // Configurar Entity Framework Core con MySQL
@@ -13,11 +18,17 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 var app = builder.Build();
 
-// Configurar el middleware
+// Configuración de middleware
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Home/Error");
+    app.UseHsts();
+}
+
+app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthorization();
-
 
 app.MapControllerRoute(
     name: "default",

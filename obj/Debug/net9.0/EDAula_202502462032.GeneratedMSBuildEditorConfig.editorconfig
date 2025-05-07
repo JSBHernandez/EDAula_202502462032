@@ -32,6 +32,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTHVnZ2FnZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/sebas/OneDrive/Documentos/GitHub/EDAula_202502462032/Views/Passenger/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFzc2VuZ2VyXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sebas/OneDrive/Documentos/GitHub/EDAula_202502462032/Views/Passenger/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFzc2VuZ2VyXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sebas/OneDrive/Documentos/GitHub/EDAula_202502462032/Views/Passenger/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFzc2VuZ2VyXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/sebas/OneDrive/Documentos/GitHub/EDAula_202502462032/Views/Passenger/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFzc2VuZ2VyXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -70,6 +82,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/sebas/OneDrive/Documentos/GitHub/EDAula_202502462032/Views/Train/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhaW5cQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/sebas/OneDrive/Documentos/GitHub/EDAula_202502462032/Views/Train/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhaW5cRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/sebas/OneDrive/Documentos/GitHub/EDAula_202502462032/Views/Train/Edit.cshtml]

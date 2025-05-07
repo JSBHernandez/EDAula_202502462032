@@ -1,0 +1,28 @@
+@model EDAula_202502462032.Models.Train
+
+@{
+    ViewData["Title"] = "Eliminar Tren";
+}
+
+<div class="container mt-4">
+    <h1 class="mb-4 text-danger">Eliminar Tren</h1>
+    <p>¿Estás seguro de que deseas eliminar este tren?</p>
+    <dl class="row">
+        <dt class="col-sm-3">Nombre</dt>
+        <dd class="col-sm-9">@Model.Name</dd>
+
+        <dt class="col-sm-3">Capacidad de Pasajeros</dt>
+        <dd class="col-sm-9">@Model.PassengerCapacity</dd>
+
+        <dt class="col-sm-3">Capacidad de Equipaje</dt>
+        <dd class="col-sm-9">@Model.LuggageCapacity</dd>
+
+        <dt class="col-sm-3">Tipo</dt>
+        <dd class="col-sm-9">@Model.Type</dd>
+    </dl>
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>

@@ -6,6 +6,7 @@
 
 <div class="container mt-4">
     <h1 class="mb-4">Lista de Pasajeros</h1>
+    <a class="btn btn-primary mb-3" asp-action="Create">Agregar Pasajero</a>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -14,6 +15,7 @@
                 <th>Apellido</th>
                 <th>Identificación</th>
                 <th>Teléfono</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -25,6 +27,10 @@
                     <td>@passenger.LastName</td>
                     <td>@passenger.Identification</td>
                     <td>@passenger.PhoneNumber</td>
+                    <td>
+                        <a class="btn btn-sm btn-warning" asp-action="Edit" asp-route-id="@passenger.Id">Editar</a>
+                        <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@passenger.Id">Eliminar</a>
+                    </td>
                 </tr>
             }
         </tbody>

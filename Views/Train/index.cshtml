@@ -6,6 +6,7 @@
 
 <div class="container mt-4">
     <h1 class="mb-4">Lista de Trenes</h1>
+    <a class="btn btn-primary mb-3" asp-action="Create">Agregar Tren</a>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -14,6 +15,7 @@
                 <th>Capacidad de Pasajeros</th>
                 <th>Capacidad de Equipaje</th>
                 <th>Tipo</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -25,6 +27,10 @@
                     <td>@train.PassengerCapacity</td>
                     <td>@train.LuggageCapacity</td>
                     <td>@train.Type</td>
+                    <td>
+                        <a class="btn btn-sm btn-warning" asp-action="Edit" asp-route-id="@train.Id">Editar</a>
+                        <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@train.Id">Eliminar</a>
+                    </td>
                 </tr>
             }
         </tbody>
