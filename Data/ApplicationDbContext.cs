@@ -1,20 +1,19 @@
-namespace EDAula_202502462032.Data;
 using Microsoft.EntityFrameworkCore;
-using Models = EDAula_202502462032.Models; 
+using EDAula_202502462032.Models;
+using RouteModel = EDAula_202502462032.Models.Route; // Alias para evitar conflicto
 
-public class ApplicationDbContext : DbContext
+namespace EDAula_202502462032.Data
 {
-    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-        : base(options)
+    public class ApplicationDbContext : DbContext
     {
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
+
+        public DbSet<Employee> Employees { get; set; } // Tabla para empleados
+        public DbSet<Train> Trains { get; set; } // Tabla para trenes
+        public DbSet<RouteModel> Routes { get; set; } // Tabla para rutas
+        public DbSet<Passenger> Passengers { get; set; } // Tabla para pasajeros
+        public DbSet<Luggage> Luggages { get; set; } // Tabla para equipajes
+        public DbSet<Station> Stations { get; set; } // Tabla para estaciones
+        public DbSet<Ticket> Tickets { get; set; } // Tabla para boletos
     }
-
-
-    public DbSet<Models.Train> Trains { get; set; }
-    public DbSet<Models.Route> Routes { get; set; } 
-    public DbSet<Models.Ticket> Tickets { get; set; }
-    public DbSet<Models.Passenger> Passengers { get; set; }
-    public DbSet<Models.Luggage> Luggages { get; set; }
-    public DbSet<Models.Station> Stations { get; set; }
-    public DbSet<Models.Employee> Employees { get; set; }
 }

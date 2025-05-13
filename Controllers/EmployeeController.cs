@@ -3,67 +3,24 @@ using System.Linq;
 using EDAula_202502462032.Models;
 using EDAula_202502462032.Data;
 
-public class EmployeeController : Controller
+namespace EDAula_202502462032.Controllers
 {
-    private readonly ApplicationDbContext _context;
-
-    public EmployeeController(ApplicationDbContext context)
+    public class EmployeeController : Controller
     {
-        _context = context;
-    }
-
-    // GET: /Employee
-    public IActionResult Index()
-    {
-        var employees = _context.Employees.ToList();
-        return Ok(employees); // Devuelve la lista de empleados
-    }
-
-    // POST: /Employee/Create
-    [HttpPost]
-    public IActionResult Create([FromBody] Employee employee)
-    {
-        if (ModelState.IsValid)
+        public IActionResult Dashboard(Employee employee)
         {
-            _context.Employees.Add(employee);
-            _context.SaveChanges();
-            return Ok(employee);
+            if (employee.Role == "Administrador")
+            {
+                return View("AdminDashboard"); // Vista para administradores
+            }
+            else if (employee.Role == "Empleado")
+            {
+                return View("EmployeeDashboard"); // Vista para empleados normales
+            }
+            else
+            {
+                return Unauthorized(); // Acceso no autorizado
+            }
         }
-        return BadRequest(ModelState);
-    }
-
-    // PUT: /Employee/Edit/{id}
-    [HttpPut("{id}")]
-    public IActionResult Edit(int id, [FromBody] Employee employee)
-    {
-        var existingEmployee = _context.Employees.Find(id);
-        if (existingEmployee == null)
-        {
-            return NotFound();
-        }
-
-        existingEmployee.FirstName = employee.FirstName;
-        existingEmployee.LastName = employee.LastName;
-        existingEmployee.Role = employee.Role;
-        existingEmployee.Email = employee.Email;
-        existingEmployee.PhoneNumber = employee.PhoneNumber;
-
-        _context.SaveChanges();
-        return Ok(existingEmployee);
-    }
-
-    // DELETE: /Employee/Delete/{id}
-    [HttpDelete("{id}")]
-    public IActionResult Delete(int id)
-    {
-        var employee = _context.Employees.Find(id);
-        if (employee == null)
-        {
-            return NotFound();
-        }
-
-        _context.Employees.Remove(employee);
-        _context.SaveChanges();
-        return Ok();
     }
 }

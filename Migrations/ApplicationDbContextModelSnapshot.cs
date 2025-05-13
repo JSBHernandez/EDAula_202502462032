@@ -30,23 +30,15 @@ namespace EDAula_202502462032.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("PhoneNumber")
+                    b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Role")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Username")
                         .IsRequired()
                         .HasColumnType("longtext");
 
@@ -145,7 +137,17 @@ namespace EDAula_202502462032.Migrations
                     b.Property<int>("Distance")
                         .HasColumnType("int");
 
+                    b.Property<bool>("HasStarted")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool>("IsPublished")
+                        .HasColumnType("tinyint(1)");
+
                     b.Property<string>("Origin")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Schedule")
                         .IsRequired()
                         .HasColumnType("longtext");
 

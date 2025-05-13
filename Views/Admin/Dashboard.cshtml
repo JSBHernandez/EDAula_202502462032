@@ -1,0 +1,12 @@
+<h1>Panel de Administrador</h1>
+<p>Bienvenido, administrador. Aquí puedes gestionar el sistema.</p>
+
+<h2>Crear Empleado</h2>
+<form asp-action="CreateEmployee" method="post" asp-controller="Auth">
+    <label for="Username">Usuario:</label>
+    <input type="text" id="Username" name="Username" required />
+    <label for="Password">Contraseña:</label>
+    <input type="password" id="Password" name="Password" required />
+    <input type="hidden" name="Role" value="Empleado" />
+    <button type="submit">Crear Empleado</button>
+</form>

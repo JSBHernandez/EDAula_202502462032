@@ -1,10 +1,10 @@
-namespace EDAula_202502462032.Models;
-public class Employee
+namespace EDAula_202502462032.Models
 {
-    public int Id { get; set; }
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-    public string Role { get; set; } // "Administrador", "Operador"
-    public string Email { get; set; }
-    public string PhoneNumber { get; set; }
+    public class Employee
+    {
+        public int Id { get; set; }
+        public string Username { get; set; } // Nombre de usuario para iniciar sesión
+        public string Password { get; set; } // Contraseña para iniciar sesión
+        public string Role { get; set; } // "Administrador" o "Empleado"
+    }
 }
