@@ -7,23 +7,23 @@ namespace EDAula_202502462032.Models
     {
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "El nombre del tren es obligatorio.")]
         public string Name { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "El identificador del tren es obligatorio.")]
         public string Identifier { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "El tipo de tren es obligatorio.")]
         public string Type { get; set; } // Mercedes-Benz o Arnold
 
         [Range(1, 32, ErrorMessage = "La capacidad de carga debe estar entre 1 y 32 vagones.")]
         public int PassengerCapacity { get; set; } // Total de pasajeros
 
+        [Range(0, int.MaxValue, ErrorMessage = "La capacidad de equipaje debe ser un valor positivo.")]
         public int LuggageCapacity { get; set; } // Total de maletas permitidas
 
+        [Range(0, double.MaxValue, ErrorMessage = "El kilometraje debe ser un valor positivo.")]
         public double Mileage { get; set; } // Kilometraje del tren
-
-        public ICollection<Route> Routes { get; set; }
 
         // Propiedad calculada para determinar la cantidad máxima de vagones permitidos
         public int MaxWagons

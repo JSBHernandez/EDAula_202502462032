@@ -80,5 +80,10 @@ namespace EDAula_202502462032.Controllers
             // Aquí puedes implementar lógica para agregar, editar o eliminar empleados
             return Ok("Empleado gestionado exitosamente.");
         }
+
+        public IActionResult Dashboard()
+        {
+            return View();
+        }
     }
 }

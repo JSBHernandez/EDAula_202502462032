@@ -1,15 +1,20 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using EDAula_202502462032.Models;
+using EDAula_202502462032.Data; 
 using System.Collections.Generic;
+using System.Linq;
 
 namespace EDAula_202502462032.Controllers
 {
     public class AuthController : Controller
     {
-        private static List<Employee> Employees = new List<Employee>
+        private readonly ApplicationDbContext _context;
+
+        public AuthController(ApplicationDbContext context)
         {
-            new Employee { Id = 1, Username = "admin", Password = "admin", Role = "Administrador" }
-        };
+            _context = context;
+        }
 
         // Página de inicio de sesión
         [HttpGet]
@@ -22,19 +27,25 @@ namespace EDAula_202502462032.Controllers
         [HttpPost]
         public IActionResult Login(LoginModel login)
         {
-            var user = Employees.Find(e => e.Username == login.Username && e.Password == login.Password);
+            // Busca al usuario en la base de datos
+            var user = _context.Employees.FirstOrDefault(e => e.Username == login.Username && e.Password == login.Password);
+
             if (user != null)
             {
                 if (user.Role == "Administrador")
                 {
+                    // Redirige al Dashboard del AdminController
                     return RedirectToAction("Dashboard", "Admin");
                 }
                 return Unauthorized("No tienes permisos para acceder.");
             }
-            return Unauthorized("Credenciales incorrectas.");
+
+            // Si las credenciales son incorrectas
+            ModelState.AddModelError(string.Empty, "Usuario o contraseña incorrectos.");
+            return View();
         }
 
-        // Crear un empleado (solo accesible para administradores)
+        // Crear un empleado
         [HttpPost]
         public IActionResult CreateEmployee(Employee employee)
         {
@@ -43,7 +54,8 @@ namespace EDAula_202502462032.Controllers
                 return BadRequest("Solo se pueden crear usuarios con el rol de 'Empleado'.");
             }
 
-            Employees.Add(employee);
+            _context.Employees.Add(employee);
+            _context.SaveChanges();
             return Ok("Empleado creado exitosamente.");
         }
     }

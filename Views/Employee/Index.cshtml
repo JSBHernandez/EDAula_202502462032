@@ -1,0 +1,51 @@
+<!-- filepath: c:\Users\sebas\OneDrive\Documentos\GitHub\EDAula_202502462032\Views\Employee\Index.cshtml -->
+@model IEnumerable<EDAula_202502462032.Models.Employee>
+
+@{
+    ViewData["Title"] = "Gestionar Empleados";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col text-center">
+            <h1 class="display-4">Gestionar Empleados</h1>
+            <p class="lead">Aquí puedes ver, editar o eliminar los empleados existentes.</p>
+            <hr class="my-4">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nombre de Usuario</th>
+                        <th>Rol</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var employee in Model)
+                    {
+                        <tr>
+                            <td>@employee.Username</td>
+                            <td>@employee.Role</td>
+                            <td>
+                                <a href="/Employee/Edit/@employee.Id" class="btn btn-warning btn-sm">Editar</a>
+                                <form asp-action="Delete" method="post" class="d-inline">
+                                    <input type="hidden" name="id" value="@employee.Id" />
+                                    <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col text-center">
+            <a href="/Employee/EmployeeMenu" class="btn btn-primary">Volver al Menú</a>
+        </div>
+    </div>
+</div>

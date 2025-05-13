@@ -1,0 +1,26 @@
+<!-- filepath: c:\Users\sebas\OneDrive\Documentos\GitHub\EDAula_202502462032\Views\Employee\EmployeeMenu.cshtml -->
+@{
+    ViewData["Title"] = "Menú de Administración de Empleados";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col text-center">
+            <h1 class="display-4">Administración de Empleados</h1>
+            <p class="lead">Selecciona una opción para gestionar los empleados.</p>
+            <hr class="my-4">
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-4 text-center">
+            <a href="/Employee/Add" class="btn btn-success btn-lg w-100">Agregar un Empleado</a>
+        </div>
+        <div class="col-md-4 text-center">
+            <a href="/Employee/Index" class="btn btn-primary btn-lg w-100">Gestionar Empleados</a>
+        </div>
+        <div class="col-md-4 text-center">
+            <a href="/Admin/Dashboard" class="btn btn-secondary btn-lg w-100">Volver al Menú Principal</a>
+        </div>
+    </div>
+</div>

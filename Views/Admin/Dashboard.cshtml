@@ -1,12 +1,29 @@
-<h1>Panel de Administrador</h1>
-<p>Bienvenido, administrador. Aquí puedes gestionar el sistema.</p>
+@{
+    ViewData["Title"] = "Dashboard de Administrador";
+}
 
-<h2>Crear Empleado</h2>
-<form asp-action="CreateEmployee" method="post" asp-controller="Auth">
-    <label for="Username">Usuario:</label>
-    <input type="text" id="Username" name="Username" required />
-    <label for="Password">Contraseña:</label>
-    <input type="password" id="Password" name="Password" required />
-    <input type="hidden" name="Role" value="Empleado" />
-    <button type="submit">Crear Empleado</button>
-</form>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col text-center">
+            <h1 class="display-4">Bienvenido al Dashboard de Admin</h1>
+            <p class="lead">Administra rutas, trenes, empleados y más desde este panel.</p>
+            <hr class="my-4">
+            <p>Selecciona una opción del menú para comenzar.</p>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-3 text-center">
+            <a href="/Train/TrainMenu" class="btn btn-primary btn-lg w-100">Administración de Trenes</a>
+        </div>
+        <div class="col-md-3 text-center">
+            <a href="/Route" class="btn btn-primary btn-lg w-100">Administración de Rutas</a>
+        </div>
+        <div class="col-md-3 text-center">
+            <a href="/Schedule" class="btn btn-primary btn-lg w-100">Administración de Horarios</a>
+        </div>
+        <div class="col-md-3 text-center">
+            <a href="/Employee" class="btn btn-primary btn-lg w-100">Gestión de Empleados</a>
+        </div>
+    </div>
+</div>

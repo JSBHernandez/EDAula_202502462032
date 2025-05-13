@@ -1,0 +1,36 @@
+<!-- filepath: c:\Users\sebas\OneDrive\Documentos\GitHub\EDAula_202502462032\Views\Employee\Add.cshtml -->
+@model EDAula_202502462032.Models.Employee
+
+@{
+    ViewData["Title"] = "Agregar un Empleado";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h1 class="text-center">Agregar un Empleado</h1>
+            <form asp-action="Add" method="post">
+                <div class="form-group mb-3">
+                    <label for="Username" class="form-label">Nombre de Usuario</label>
+                    <input type="text" id="Username" name="Username" class="form-control" value="@Model.Username" required />
+                    <span asp-validation-for="Username" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="Password" class="form-label">Contraseña</label>
+                    <input type="password" id="Password" name="Password" class="form-control" value="@Model.Password" required />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="Role" class="form-label">Rol</label>
+                    <select id="Role" name="Role" class="form-control">
+                        <option value="Administrador">Administrador</option>
+                        <option value="Empleado">Empleado</option>
+                    </select>
+                    <span asp-validation-for="Role" class="text-danger"></span>
+                </div>
+                <button type="submit" class="btn btn-success w-100">Agregar Empleado</button>
+            </form>
+            <a href="/Employee/EmployeeMenu" class="btn btn-primary w-100 mt-3">Volver al Menú</a>
+        </div>
+    </div>
+</div>

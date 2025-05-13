@@ -2,92 +2,121 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using EDAula_202502462032.Models;
 using EDAula_202502462032.Data;
+using System.Linq;
 
-public class TrainController : Controller
+namespace EDAula_202502462032.Controllers
 {
-    private readonly ApplicationDbContext _context;
-
-    public TrainController(ApplicationDbContext context)
+    public class TrainController : Controller
     {
-        _context = context;
-    }
+        private readonly ApplicationDbContext _context;
 
-    // GET: /Train
-    public IActionResult Index()
-    {
-        var trains = _context.Trains.ToList();
-        return View(trains);
-    }
-
-    // GET: /Train/Create
-    public IActionResult Create()
-    {
-        return View();
-    }
-
-    // POST: /Train/Create
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public IActionResult Create(Train train)
-    {
-        if (ModelState.IsValid)
+        public TrainController(ApplicationDbContext context)
         {
-            _context.Trains.Add(train);
-            _context.SaveChanges();
-            return RedirectToAction(nameof(Index));
-        }
-        return View(train);
-    }
-
-    // GET: /Train/Edit/{id}
-    public IActionResult Edit(int id)
-    {
-        var train = _context.Trains.Find(id);
-        if (train == null)
-        {
-            return NotFound();
-        }
-        return View(train);
-    }
-
-    // POST: /Train/Edit/{id}
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public IActionResult Edit(int id, Train train)
-    {
-        if (id != train.Id)
-        {
-            return NotFound();
+            _context = context;
         }
 
-        if (ModelState.IsValid)
+        // Menú principal de administración de trenes
+        public IActionResult TrainMenu()
         {
-            _context.Update(train);
-            _context.SaveChanges();
-            return RedirectToAction(nameof(Index));
+            return View();
         }
-        return View(train);
-    }
 
-    // GET: /Train/Delete/{id}
-    public IActionResult Delete(int id)
-    {
-        var train = _context.Trains.Find(id);
-        if (train == null)
+        // GET: /Train/Add
+        [HttpGet]
+        public IActionResult Add()
         {
-            return NotFound();
+            return View(new Train()); // Pasa un modelo vacío a la vista
         }
-        return View(train);
-    }
 
-    // POST: /Train/Delete/{id}
-    [HttpPost, ActionName("Delete")]
-    [ValidateAntiForgeryToken]
-    public IActionResult DeleteConfirmed(int id)
-    {
-        var train = _context.Trains.Find(id);
-        _context.Trains.Remove(train);
-        _context.SaveChanges();
-        return RedirectToAction(nameof(Index));
+        // POST: /Train/Add
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Add(Train train)
+        {
+            if (ModelState.IsValid)
+            {
+                // Validar la capacidad máxima de vagones según el tipo de tren
+                if (train.PassengerCapacity > train.MaxWagons)
+                {
+                    ModelState.AddModelError("PassengerCapacity", $"La capacidad máxima para el tipo {train.Type} es de {train.MaxWagons} vagones.");
+                    return View(train);
+                }
+
+                _context.Trains.Add(train); // Agrega el tren a la base de datos
+                _context.SaveChanges(); // Guarda los cambios
+                return RedirectToAction("TrainMenu"); // Redirige al menú de gestión de trenes
+            }
+            return View(train); // Si el modelo no es válido, vuelve a mostrar la vista con los errores
+        }
+
+        // GET: /Train/Index
+        public IActionResult Index()
+        {
+            var trains = _context.Trains.ToList(); // Obtiene todos los trenes de la base de datos
+            return View(trains); // Pasa la lista de trenes a la vista
+        }
+
+        // GET: /Train/Delete/{id}
+        public IActionResult Delete(int id)
+        {
+            var train = _context.Trains.Find(id);
+            if (train == null)
+            {
+                return NotFound();
+            }
+            return View(train);
+        }
+
+        // POST: /Train/Delete/{id}
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var train = _context.Trains.Find(id);
+            if (train != null)
+            {
+                _context.Trains.Remove(train); // Elimina el tren de la base de datos
+                _context.SaveChanges(); // Guarda los cambios
+                return RedirectToAction("TrainMenu"); // Redirige al menú de gestión de trenes
+            }
+            return NotFound("El tren especificado no existe.");
+        }
+
+        // GET: /Train/Edit/{id}
+        public IActionResult Edit(int id)
+        {
+            var train = _context.Trains.Find(id);
+            if (train == null)
+            {
+                return NotFound();
+            }
+            return View(train);
+        }
+
+        // POST: /Train/Edit/{id}
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(int id, Train train)
+        {
+            if (id != train.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                // Validar la capacidad máxima de vagones según el tipo de tren
+                if (train.PassengerCapacity > train.MaxWagons)
+                {
+                    ModelState.AddModelError("PassengerCapacity", $"La capacidad máxima para el tipo {train.Type} es de {train.MaxWagons} vagones.");
+                    return View(train);
+                }
+
+                _context.Update(train); // Actualiza el tren en la base de datos
+                _context.SaveChanges(); // Guarda los cambios
+                return RedirectToAction("Index"); // Redirige al listado de trenes
+            }
+            return View(train); // Si el modelo no es válido, vuelve a mostrar la vista con los errores
+        }
     }
 }

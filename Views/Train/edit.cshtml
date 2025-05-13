@@ -1,34 +1,52 @@
+<!-- filepath: c:\Users\sebas\OneDrive\Documentos\GitHub\EDAula_202502462032\Views\Train\Edit.cshtml -->
 @model EDAula_202502462032.Models.Train
 
 @{
     ViewData["Title"] = "Editar Tren";
 }
 
-<div class="container mt-4">
-    <h1 class="mb-4">Editar Tren</h1>
-    <form asp-action="Edit" method="post">
-        <input type="hidden" asp-for="Id" />
-        <div class="mb-3">
-            <label for="Name" class="form-label">Nombre</label>
-            <input type="text" class="form-control" asp-for="Name" required />
-            <span asp-validation-for="Name" class="text-danger"></span>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h1 class="text-center">Editar Tren</h1>
+            <form asp-action="Edit" method="post">
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group mb-3">
+                    <label for="Name" class="form-label">Nombre del Tren</label>
+                    <input type="text" id="Name" name="Name" class="form-control" value="@Model.Name" required />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="Identifier" class="form-label">Identificador</label>
+                    <input type="text" id="Identifier" name="Identifier" class="form-control" value="@Model.Identifier" required />
+                    <span asp-validation-for="Identifier" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="Type" class="form-label">Tipo</label>
+                    <select id="Type" name="Type" class="form-control" asp-for="Type">
+                        <option value="Mercedes-Benz">Mercedes-Benz</option>
+                        <option value="Arnold">Arnold</option>
+                    </select>
+                    <span asp-validation-for="Type" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="PassengerCapacity" class="form-label">Capacidad de Pasajeros</label>
+                    <input type="number" id="PassengerCapacity" name="PassengerCapacity" class="form-control" value="@Model.PassengerCapacity" required />
+                    <span asp-validation-for="PassengerCapacity" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="LuggageCapacity" class="form-label">Capacidad de Equipaje</label>
+                    <input type="number" id="LuggageCapacity" name="LuggageCapacity" class="form-control" value="@Model.LuggageCapacity" required />
+                    <span asp-validation-for="LuggageCapacity" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="Mileage" class="form-label">Kilometraje</label>
+                    <input type="number" id="Mileage" name="Mileage" class="form-control" value="@Model.Mileage" required />
+                    <span asp-validation-for="Mileage" class="text-danger"></span>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Guardar Cambios</button>
+            </form>
+            <a asp-action="Index" class="btn btn-secondary w-100 mt-3">Cancelar</a>
         </div>
-        <div class="mb-3">
-            <label for="PassengerCapacity" class="form-label">Capacidad de Pasajeros</label>
-            <input type="number" class="form-control" asp-for="PassengerCapacity" required />
-            <span asp-validation-for="PassengerCapacity" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
-            <label for="LuggageCapacity" class="form-label">Capacidad de Equipaje</label>
-            <input type="number" class="form-control" asp-for="LuggageCapacity" required />
-            <span asp-validation-for="LuggageCapacity" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
-            <label for="Type" class="form-label">Tipo</label>
-            <input type="text" class="form-control" asp-for="Type" required />
-            <span asp-validation-for="Type" class="text-danger"></span>
-        </div>
-        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
-    </form>
+    </div>
 </div>
