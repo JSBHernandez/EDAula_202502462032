@@ -1,47 +1,93 @@
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using Models = EDAula_202502462032.Models;
+using EDAula_202502462032.Models;
+using EDAula_202502462032.Data;
+using System.Linq;
 
-public class TicketController : Controller
+namespace EDAula_202502462032.Controllers
 {
-    // Simula una base de datos de tickets
-    private static List<Models.Ticket> _tickets = new List<Models.Ticket>();
-
-    // GET: /Ticket
-    public IActionResult Index()
+    public class TicketController : Controller
     {
-        return View(_tickets); // Muestra todos los tickets
-    }
+        private readonly ApplicationDbContext _context;
 
-    // POST: /Ticket/Buy
-    [HttpPost]
-    public IActionResult Buy([FromBody] Models.Ticket ticket)
-    {
-        _tickets.Add(ticket); // Simula la compra de un ticket
-        return Ok(new { Message = "Ticket comprado exitosamente", Ticket = ticket });
-    }
-
-    // GET: /Ticket/Details/{id}
-    public IActionResult Details(int id)
-    {
-        var ticket = _tickets.Find(t => t.Id == id);
-        if (ticket == null)
+        public TicketController(ApplicationDbContext context)
         {
-            return NotFound(new { Message = "Ticket no encontrado" });
+            _context = context;
         }
-        return View(ticket); // Muestra los detalles del ticket
-    }
 
-    // DELETE: /Ticket/Cancel/{id}
-    [HttpDelete("{id}")]
-    public IActionResult Cancel(int id)
-    {
-        var ticket = _tickets.Find(t => t.Id == id);
-        if (ticket == null)
+        // GET: /Ticket
+        public IActionResult Index()
         {
-            return NotFound(new { Message = "Ticket no encontrado" });
+            var tickets = _context.Tickets.ToList();
+            return View(tickets); // Muestra todos los tickets
         }
-        _tickets.Remove(ticket); // Simula la cancelación del ticket
-        return Ok(new { Message = $"Ticket con ID {id} cancelado exitosamente" });
+
+        // POST: /Ticket/Buy
+        [HttpPost]
+        public IActionResult Buy([FromBody] Ticket ticket)
+        {
+            ticket.PurchaseDateTime = DateTime.Now;
+            _context.Tickets.Add(ticket);
+            _context.SaveChanges();
+            return Ok(new { Message = "Ticket comprado exitosamente", Ticket = ticket });
+        }
+
+        // GET: /Ticket/Details/{id}
+        public IActionResult Details(int id)
+        {
+            var ticket = _context.Tickets.Find(id);
+            if (ticket == null)
+            {
+                return NotFound(new { Message = "Ticket no encontrado" });
+            }
+            return View(ticket); // Muestra los detalles del ticket
+        }
+
+        // DELETE: /Ticket/Cancel/{id}
+        [HttpDelete("{id}")]
+        public IActionResult Cancel(int id)
+        {
+            var ticket = _context.Tickets.Find(id);
+            if (ticket == null)
+            {
+                return NotFound(new { Message = "Ticket no encontrado" });
+            }
+            _context.Tickets.Remove(ticket);
+            _context.SaveChanges();
+            return Ok(new { Message = $"Ticket con ID {id} cancelado exitosamente" });
+        }
+
+        // GET: /Ticket/Create
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View(new Ticket());
+        }
+
+        // POST: /Ticket/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Ticket ticket)
+        {
+            if (ModelState.IsValid)
+            {
+                ticket.PurchaseDateTime = DateTime.Now;
+                _context.Tickets.Add(ticket);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(ticket);
+        }
+
+        // GET: /Ticket/BoardingOrder
+        [HttpGet]
+        public IActionResult BoardingOrder()
+        {
+            var tickets = _context.Tickets
+                .OrderByDescending(t => t.PassengerCategory) // Ordenar por categoría
+                .ThenBy(t => t.Seat) // Ordenar por lugar
+                .ToList();
+
+            return View(tickets);
+        }
     }
 }

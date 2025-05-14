@@ -1,0 +1,30 @@
+@model IEnumerable<dynamic>
+
+<div class="container mt-5">
+    <h1 class="text-center">Rutas Disponibles</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Tren</th>
+                <th>Origen</th>
+                <th>Destino</th>
+                <th>Horario</th>
+                <th>Distancia</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var route in Model)
+            {
+                <tr>
+                    <td>@route.Train</td>
+                    <td>@route.Origin</td>
+                    <td>@route.Destination</td>
+                    <td>@route.Schedule</td>
+                    <td>@route.Distance km</td>
+                    <td>$@route.Price</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

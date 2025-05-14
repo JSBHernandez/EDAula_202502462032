@@ -10,7 +10,7 @@ public class TicketService
         _context = context;
     }
 
-    public bool ValidateSeatAvailability(int trainId, string seatCategory)
+    public bool ValidateSeatAvailability(int trainId, string PassengerCategory)
     {
         var train = _context.Trains.Find(trainId);
         if (train == null)
@@ -18,9 +18,9 @@ public class TicketService
             return false; // Tren no encontrado
         }
 
-        var tickets = _context.Tickets.Where(t => t.TrainId == trainId && t.SeatCategory == seatCategory).Count();
+        var tickets = _context.Tickets.Where(t => t.TrainId == trainId && t.PassengerCategory == PassengerCategory).Count();
 
-        switch (seatCategory)
+        switch (PassengerCategory)
         {
             case "Premium":
                 return tickets < 4 * train.PassengerCapacity; // 4 asientos premium por vagón

@@ -1,0 +1,16 @@
+@model dynamic
+
+<div class="container mt-5">
+    <h1 class="text-center">Ruta Más Corta</h1>
+    <p><strong>Origen:</strong> @Model.Origin</p>
+    <p><strong>Destino:</strong> @Model.Destination</p>
+    <h5>Ruta:</h5>
+    <ul>
+        @foreach (var station in Model.Path)
+        {
+            <li>@station</li>
+        }
+    </ul>
+    <p><strong>Distancia Total:</strong> @Model.Distance km</p>
+    <p><strong>Precio:</strong> $@Model.Price</p>
+</div>

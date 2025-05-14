@@ -16,7 +16,7 @@ public class BoardingService
     {
         var tickets = _context.Tickets
             .Where(t => t.TrainId == trainId)
-            .OrderByDescending(t => t.SeatCategory) // Ordenar por categoría (Premium > Ejecutivo > Estándar)
+            .OrderByDescending(t => t.PassengerCategory) // Ordenar por categoría (Premium > Ejecutivo > Estándar)
             .ThenByDescending(t => t.Id) // Ordenar de atrás hacia adelante
             .ToList();
 

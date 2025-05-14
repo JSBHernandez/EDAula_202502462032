@@ -1,0 +1,20 @@
+@model EDAula_202502462032.Models.TicketDemoViewModel
+
+<div class="container mt-5">
+    <h1 class="text-center">Confirmación del Boleto</h1>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Boleto Confirmado</h5>
+            <p><strong>Tren:</strong> @Model.TrainId</p>
+            <p><strong>Salida:</strong> @Model.DepartureDateTime</p>
+            <p><strong>Llegada:</strong> @Model.ArrivalDateTime</p>
+            <p><strong>Precio:</strong> $@Model.TicketPrice</p>
+            <h5>Datos del Pasajero</h5>
+            <p><strong>Nombre:</strong> @Model.FirstName @Model.LastName</p>
+            <p><strong>Teléfono:</strong> @Model.PhoneNumber</p>
+            <h5>Contacto de Emergencia</h5>
+            <p><strong>Nombre:</strong> @Model.EmergencyContactName</p>
+            <p><strong>Teléfono:</strong> @Model.EmergencyContactPhone</p>
+        </div>
+    </div>
+</div>

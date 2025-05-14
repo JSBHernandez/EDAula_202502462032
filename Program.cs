@@ -53,4 +53,14 @@ app.MapControllerRoute(
     pattern: "Route/{action=Index}/{id?}",
     defaults: new { controller = "Route" });
 
+app.MapControllerRoute(
+    name: "ticket",
+    pattern: "Ticket/{action=Index}/{id?}",
+    defaults: new { controller = "Ticket" });
+
+app.MapControllerRoute(
+    name: "client",
+    pattern: "Client/{action=TicketDemo}/{id?}",
+    defaults: new { controller = "Client" });
+
 app.Run();

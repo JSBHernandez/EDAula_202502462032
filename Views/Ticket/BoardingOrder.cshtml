@@ -1,0 +1,26 @@
+@model IEnumerable<EDAula_202502462032.Models.Ticket>
+
+<div class="container mt-5">
+    <h1 class="text-center">Orden de Abordaje</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Categoría</th>
+                <th>Asiento</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var ticket in Model)
+            {
+                <tr>
+                    <td>@ticket.FirstName</td>
+                    <td>@ticket.LastName</td>
+                    <td>@ticket.PassengerCategory</td>
+                    <td>@ticket.Seat</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
