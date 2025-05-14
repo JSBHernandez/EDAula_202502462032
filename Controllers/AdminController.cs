@@ -67,8 +67,12 @@ namespace EDAula_202502462032.Controllers
             var route = Routes.Find(r => r.Id == routeId);
             if (route != null && !route.HasStarted)
             {
-                route.Schedule = newSchedule;
-                return Ok("Horario modificado exitosamente.");
+                if (DateTime.TryParse(newSchedule, out DateTime parsedSchedule))
+                {
+                    route.Schedule = parsedSchedule;
+                    return Ok("Horario modificado exitosamente.");
+                }
+                return BadRequest("El formato del horario es inválido.");
             }
             return BadRequest("No se puede modificar el horario de una ruta ya iniciada.");
         }

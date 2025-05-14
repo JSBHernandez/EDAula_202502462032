@@ -4,6 +4,7 @@ using EDAula_202502462032.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EDAula_202502462032.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250513181751_UpdateRouteModel")]
+    partial class UpdateRouteModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -187,74 +190,6 @@ namespace EDAula_202502462032.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Stations");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Location = "Ubicación A",
-                            Name = "A"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Location = "Ubicación B",
-                            Name = "B"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Location = "Ubicación C",
-                            Name = "C"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Location = "Ubicación D",
-                            Name = "D"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Location = "Ubicación E",
-                            Name = "E"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Location = "Ubicación F",
-                            Name = "F"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Location = "Ubicación G",
-                            Name = "G"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Location = "Ubicación H",
-                            Name = "H"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Location = "Ubicación I",
-                            Name = "I"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            Location = "Ubicación J",
-                            Name = "J"
-                        },
-                        new
-                        {
-                            Id = 11,
-                            Location = "Ubicación K",
-                            Name = "K"
-                        });
                 });
 
             modelBuilder.Entity("EDAula_202502462032.Models.Ticket", b =>

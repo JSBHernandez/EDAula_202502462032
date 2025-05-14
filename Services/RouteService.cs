@@ -85,8 +85,9 @@ public class RouteService
                 graph[route.Destination] = new Dictionary<string, int>();
             }
 
-            graph[route.Origin][route.Destination] = route.Distance;
-            graph[route.Destination][route.Origin] = route.Distance; // Grafo no dirigido
+            // Conversión explícita de double a int
+            graph[route.Origin][route.Destination] = (int)route.Distance;
+            graph[route.Destination][route.Origin] = (int)route.Distance; // Grafo no dirigido
         }
 
         return graph;

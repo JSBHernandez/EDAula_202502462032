@@ -1,0 +1,35 @@
+@model IEnumerable<EDAula_202502462032.Models.Route>
+
+<div class="container mt-5">
+    <h1 class="text-center">Gestión de Rutas</h1>
+    <a href="/Route/Add" class="btn btn-success mb-3">Agregar Ruta</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Tren</th>
+                <th>Origen</th>
+                <th>Destino</th>
+                <th>Distancia</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var route in Model)
+            {
+                <tr>
+                    <td>@route.Train</td>
+                    <td>@route.Origin</td>
+                    <td>@route.Destination</td>
+                    <td>@route.Distance</td>
+                    <td>
+                        <a href="/Route/Edit/@route.Id" class="btn btn-warning btn-sm">Editar</a>
+                        <form asp-action="Delete" method="post" class="d-inline">
+                            <input type="hidden" name="id" value="@route.Id" />
+                            <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
